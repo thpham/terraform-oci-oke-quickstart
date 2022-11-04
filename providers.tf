@@ -3,6 +3,8 @@
 # 
 
 terraform {
+  backend "local" {
+  }
   required_version = ">= 1.1"
   required_providers {
     oci = {
@@ -69,25 +71,27 @@ provider "oci" {
 
 # https://docs.cloud.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengdownloadkubeconfigfile.htm#notes
 provider "kubernetes" {
-  host                   = local.cluster_endpoint
-  cluster_ca_certificate = local.cluster_ca_certificate
-  exec {
-    api_version = "client.authentication.k8s.io/v1beta1"
-    args        = ["ce", "cluster", "generate-token", "--cluster-id", local.cluster_id, "--region", local.cluster_region]
-    command     = "oci"
-  }
+  config_path = "~/.kube/oci-poc-3-config"
+  #host                   = local.cluster_endpoint
+  #cluster_ca_certificate = local.cluster_ca_certificate
+  #exec {
+  #  api_version = "client.authentication.k8s.io/v1beta1"
+  #  args        = ["ce", "cluster", "generate-token", "--cluster-id", local.cluster_id, "--region", local.cluster_region]
+  #  command     = "oci"
+  #}
 }
 
 # https://docs.cloud.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengdownloadkubeconfigfile.htm#notes
 provider "helm" {
   kubernetes {
-    host                   = local.cluster_endpoint
-    cluster_ca_certificate = local.cluster_ca_certificate
-    exec {
-      api_version = "client.authentication.k8s.io/v1beta1"
-      args        = ["ce", "cluster", "generate-token", "--cluster-id", local.cluster_id, "--region", local.cluster_region]
-      command     = "oci"
-    }
+    config_path = "~/.kube/oci-poc-3-config"
+  #  host                   = local.cluster_endpoint
+  #  cluster_ca_certificate = local.cluster_ca_certificate
+  #  exec {
+  #    api_version = "client.authentication.k8s.io/v1beta1"
+  #    args        = ["ce", "cluster", "generate-token", "--cluster-id", local.cluster_id, "--region", local.cluster_region]
+  #    command     = "oci"
+  #  }
   }
 }
 
