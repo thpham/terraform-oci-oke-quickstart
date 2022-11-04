@@ -190,4 +190,4 @@ See [LICENSE](./LICENSE) for more details.
 [orm_landing]:https://www.oracle.com/cloud/systems-management/resource-manager/
 [oci_tf_provider]: https://www.terraform.io/docs/providers/oci/index.html
 [magic_button]: https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg
-[magic_oke_stack]: https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/oracle-quickstart/terraform-oci-oke-quickstart/releases/latest/download/terraform-oci-oke-quickstart-stack.zip
+[magic_oke_stack]: https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/thpham/terraform-oci-oke-quickstart/archive/refs/heads/demo.zip
